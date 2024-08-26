@@ -4,6 +4,7 @@
 #include <filesystem>
 #include <DirectXTex/DirectXTex.h>
 #include "Core/InputManager.hpp"
+#include "ECS/Component.hpp"
 #include "Math/Vector2.hpp"
 #include "Util/Typedefs.hpp"
 
@@ -21,7 +22,7 @@ namespace Invasion::World
 		Vector2f dimensions;
 	};
 
-	class TextureAtlas
+	class TextureAtlas : public Component
 	{
 
 	public:
@@ -62,7 +63,7 @@ namespace Invasion::World
             return name;
         }
 
-        void CleanUp()
+        void CleanUp_NoOverride()
         {
             images.ForEach([](DirectX::ScratchImage image) { image.Release(); });
         }

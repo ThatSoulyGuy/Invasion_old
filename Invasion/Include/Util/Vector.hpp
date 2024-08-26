@@ -187,6 +187,12 @@ namespace Invasion::Util
 			data.swap(other.data);
 		}
 
+		void ForEach(const std::function<void(T&&)>& function)
+		{
+			for (T& value : data)
+				function(std::move(value));
+		}
+
 		void ForEach(const std::function<void(const T&)>& function) const
 		{
 			for (const T& value : data)

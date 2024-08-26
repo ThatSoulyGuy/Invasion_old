@@ -21,7 +21,7 @@ namespace Invasion::World
 
 		void Remove()
 		{
-			textureAtlases.ForEach([](Shared<TextureAtlas> image) { image->CleanUp(); });
+			textureAtlases.ForEach([](Shared<TextureAtlas> image) { image->CleanUp_NoOverride(); });
 		}
 
 	private:
