@@ -1,0 +1,11 @@
+<XXML=1.2>
+
+#global SILENCE_QUATERNION_WARNINGS
+
+ID="0x989374BC6A7EF9DB22D1"
+
+[ <Invasion_Default>
+	DefaultApplicationTitle="Invasion"
+	DefaultApplicationVersion=[1.8.3]
+	DefaultWindowDimensions=[750,450]
+]

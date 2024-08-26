@@ -1,0 +1,507 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Invasion\App.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Invasion\Include\Util\BasicString.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Util\Typedefs.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Util\Formatter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Util\BasicMap.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Util\DateTime.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Core\Logger.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Math\Quaternion.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Math\Vector2.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Math\Vector3.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Math\Vector4.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Util\XXMLParser.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Util\CommonVersionFormat.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Util\Vector.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Util\FileHelper.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Core\Settings.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Invasion.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Util\Assembly.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Render\Renderer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Render\Mesh.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Render\Vertex.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Render\Shader.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Util\Array.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Render\ShaderManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Render\Texture.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Render\TextureManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Math\Transform.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\ECS\Component.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\ECS\GameObject.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\ECS\GameObjectManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Render\Camera.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Core\InputManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Entity\IEntity.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\Entity\Entities\EntityPlayer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\World\Chunk.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\World\TextureAtlas.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Invasion\Include\World\TextureAtlasManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Invasion\Include\Core\Window.hpp" />
+    <None Include="Assets\Invasion\EngineSettings.xxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Assets\Invasion\Shader\DefaultVertex.hlsl" />
+    <FxCompile Include="Assets\Invasion\Shader\DefaultPixel.hlsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Invasion\Texture\Debug.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\anvil_base.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\anvil_top_damaged_0.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\anvil_top_damaged_1.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\anvil_top_damaged_2.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\beacon.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\bed_feet_end.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\bed_feet_side.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\bed_feet_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\bed_head_end.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\bed_head_side.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\bed_head_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\bedrock.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\bookshelf.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\brewing_stand.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\brewing_stand_base.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\brick.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\cactus_bottom.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\cactus_side.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\cactus_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\cake_bottom.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\cake_inner.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\cake_side.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\cake_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\carrots_stage_0.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\carrots_stage_1.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\carrots_stage_2.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\carrots_stage_3.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\cauldron_bottom.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\cauldron_inner.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\cauldron_side.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\cauldron_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\clay.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\coal_block.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\coal_ore.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\coarse_dirt.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\cobblestone.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\cobblestone_mossy.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\cocoa_stage_0.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\cocoa_stage_1.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\cocoa_stage_2.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\command_block.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\comparator_off.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\comparator_on.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\crafting_table_front.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\crafting_table_side.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\crafting_table_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\daylight_detector_inverted_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\daylight_detector_side.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\daylight_detector_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\deadbush.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\destroy_stage_0.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\destroy_stage_1.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\destroy_stage_2.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\destroy_stage_3.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\destroy_stage_4.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\destroy_stage_5.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\destroy_stage_6.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\destroy_stage_7.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\destroy_stage_8.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\destroy_stage_9.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\diamond_block.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\diamond_ore.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\dirt.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\dirt_podzol_side.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\dirt_podzol_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\dispenser_front_horizontal.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\dispenser_front_vertical.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\door_acacia_lower.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\door_acacia_upper.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\door_birch_lower.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\door_birch_upper.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\door_dark_oak_lower.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\door_dark_oak_upper.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\door_iron_lower.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\door_iron_upper.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\door_jungle_lower.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\door_jungle_upper.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\door_spruce_lower.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\door_spruce_upper.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\door_wood_lower.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\door_wood_upper.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\double_plant_fern_bottom.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\double_plant_fern_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\double_plant_grass_bottom.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\double_plant_grass_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\double_plant_paeonia_bottom.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\double_plant_paeonia_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\double_plant_rose_bottom.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\double_plant_rose_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\double_plant_sunflower_back.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\double_plant_sunflower_bottom.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\double_plant_sunflower_front.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\double_plant_sunflower_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\double_plant_syringa_bottom.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\double_plant_syringa_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\dragon_egg.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\dropper_front_horizontal.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\dropper_front_vertical.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\emerald_block.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\emerald_ore.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\enchanting_table_bottom.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\enchanting_table_side.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\enchanting_table_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\end_stone.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\endframe_eye.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\endframe_side.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\endframe_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\farmland_dry.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\farmland_wet.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\fern.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\flower_allium.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\flower_blue_orchid.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\flower_dandelion.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\flower_houstonia.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\flower_oxeye_daisy.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\flower_paeonia.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\flower_pot.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\flower_rose.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\flower_tulip_orange.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\flower_tulip_pink.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\flower_tulip_red.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\flower_tulip_white.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\furnace_front_off.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\furnace_front_on.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\furnace_side.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\furnace_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_black.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_blue.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_brown.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_cyan.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_gray.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_green.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_light_blue.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_lime.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_magenta.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_orange.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_pane_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_pane_top_black.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_pane_top_blue.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_pane_top_brown.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_pane_top_cyan.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_pane_top_gray.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_pane_top_green.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_pane_top_light_blue.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_pane_top_lime.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_pane_top_magenta.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_pane_top_orange.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_pane_top_pink.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_pane_top_purple.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_pane_top_red.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_pane_top_silver.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_pane_top_white.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_pane_top_yellow.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_pink.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_purple.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_red.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_silver.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_white.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glass_yellow.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\glowstone.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\gold_block.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\gold_ore.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\grass_side.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\grass_side_overlay.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\grass_side_snowed.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\grass_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\gravel.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hardened_clay.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hardened_clay_stained_black.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hardened_clay_stained_blue.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hardened_clay_stained_brown.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hardened_clay_stained_cyan.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hardened_clay_stained_gray.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hardened_clay_stained_green.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hardened_clay_stained_light_blue.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hardened_clay_stained_lime.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hardened_clay_stained_magenta.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hardened_clay_stained_orange.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hardened_clay_stained_pink.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hardened_clay_stained_purple.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hardened_clay_stained_red.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hardened_clay_stained_silver.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hardened_clay_stained_white.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hardened_clay_stained_yellow.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hay_block_side.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hay_block_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hopper_inside.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hopper_outside.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\hopper_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\ice.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\ice_packed.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\iron_bars.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\iron_block.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\iron_ore.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\iron_trapdoor.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\itemframe_background.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\jukebox_side.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\jukebox_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\ladder.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\lapis_block.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\lapis_ore.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\leaves_acacia.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\leaves_big_oak.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\leaves_birch.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\leaves_jungle.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\leaves_oak.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\leaves_spruce.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\lever.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\log_acacia.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\log_acacia_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\log_big_oak.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\log_big_oak_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\log_birch.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\log_birch_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\log_jungle.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\log_jungle_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\log_oak.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\log_oak_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\log_spruce.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\log_spruce_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\melon_side.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\melon_stem_connected.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\melon_stem_disconnected.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\melon_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\mob_spawner.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\mushroom_block_inside.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\mushroom_block_skin_brown.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\mushroom_block_skin_red.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\mushroom_block_skin_stem.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\mushroom_brown.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\mushroom_red.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\mycelium_side.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\mycelium_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\nether_brick.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\nether_wart_stage_0.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\nether_wart_stage_1.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\nether_wart_stage_2.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\netherrack.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\noteblock.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\obsidian.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\piston_bottom.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\piston_inner.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\piston_side.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\piston_top_normal.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\piston_top_sticky.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\planks_acacia.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\planks_big_oak.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\planks_birch.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\planks_jungle.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\planks_oak.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\planks_spruce.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\potatoes_stage_0.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\potatoes_stage_1.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\potatoes_stage_2.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\potatoes_stage_3.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\prismarine_bricks.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\prismarine_dark.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\pumpkin_face_off.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\pumpkin_face_on.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\pumpkin_side.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\pumpkin_stem_connected.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\pumpkin_stem_disconnected.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\pumpkin_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\quartz_block_bottom.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\quartz_block_chiseled.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\quartz_block_chiseled_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\quartz_block_lines.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\quartz_block_lines_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\quartz_block_side.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\quartz_block_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\quartz_ore.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\rail_activator.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\rail_activator_powered.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\rail_detector.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\rail_detector_powered.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\rail_golden.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\rail_golden_powered.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\rail_normal.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\rail_normal_turned.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\red_sand.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\red_sandstone_bottom.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\red_sandstone_carved.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\red_sandstone_normal.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\red_sandstone_smooth.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\red_sandstone_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\redstone_block.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\redstone_dust_cross.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\redstone_dust_cross_overlay.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\redstone_dust_line.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\redstone_dust_line_overlay.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\redstone_lamp_off.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\redstone_lamp_on.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\redstone_ore.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\redstone_torch_off.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\redstone_torch_on.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\reeds.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\repeater_off.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\repeater_on.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\sand.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\sandstone_bottom.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\sandstone_carved.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\sandstone_normal.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\sandstone_smooth.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\sandstone_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\sapling_acacia.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\sapling_birch.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\sapling_jungle.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\sapling_oak.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\sapling_roofed_oak.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\sapling_spruce.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\slime.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\snow.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\soul_sand.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\sponge.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\sponge_wet.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\stone.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\stone_andesite.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\stone_andesite_smooth.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\stone_diorite.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\stone_diorite_smooth.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\stone_granite.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\stone_granite_smooth.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\stone_slab_side.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\stone_slab_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\stonebrick.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\stonebrick_carved.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\stonebrick_cracked.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\stonebrick_mossy.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\tallgrass.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\tnt_bottom.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\tnt_side.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\tnt_top.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\torch_on.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\trapdoor.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\trip_wire.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\trip_wire_source.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\vine.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\waterlily.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\web.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wheat_stage_0.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wheat_stage_1.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wheat_stage_2.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wheat_stage_3.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wheat_stage_4.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wheat_stage_5.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wheat_stage_6.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wheat_stage_7.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wool_colored_black.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wool_colored_blue.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wool_colored_brown.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wool_colored_cyan.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wool_colored_gray.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wool_colored_green.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wool_colored_light_blue.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wool_colored_lime.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wool_colored_magenta.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wool_colored_orange.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wool_colored_pink.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wool_colored_purple.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wool_colored_red.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wool_colored_silver.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wool_colored_white.dds" />
+    <Image Include="Assets\Invasion\Texture\Block\wool_colored_yellow.dds" />
+  </ItemGroup>
+</Project>
