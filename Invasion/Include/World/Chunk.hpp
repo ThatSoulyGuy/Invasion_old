@@ -171,9 +171,7 @@ namespace Invasion::World
 			for (size_t i = 1; i < blocks.Length(); ++i)
 			{
 				if (blocks[i] == currentBlock)
-				{
 					runLength++;
-				}
 				else
 				{
 					rleBlocks += Pair(currentBlock, runLength);

@@ -123,8 +123,6 @@ namespace Invasion
 
 			Shared<TextureAtlas> texturePacker = TextureAtlas::Create();
 
-			texturePacker->Initialize("default", "Assets/Invasion/Texture/Block", "Assets/Invasion/Texture/Atlas");
-
 			TextureManager::GetInstance().Register(Texture::Create("debug", "Texture/Debug.dds", samplerDescription));
 
 			player = GameObjectManager::GetInstance().Register(GameObject::Create("Player"));

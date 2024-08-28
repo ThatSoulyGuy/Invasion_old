@@ -54,8 +54,6 @@ namespace Invasion::World
 
             atlas = PackTextures();
             SaveAtlasAndLookupTable(outputDirectory.operator std::string());
-
-            return true;
         }
 
         String GetName() const
@@ -73,10 +71,6 @@ namespace Invasion::World
             class Enabled : public TextureAtlas { };
             return std::move(std::make_shared<Enabled>());
         }
-
-	private:
-
-        TextureAtlas() = default;
 
         DirectX::ScratchImage PackTextures()
         {
