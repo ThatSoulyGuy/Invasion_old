@@ -9,7 +9,7 @@
 #include "Util/Typedefs.hpp"
 #include "Util/XXMLParser.hpp"
 #include "World/Chunk.hpp"
-#include "World/TextureAtlas.hpp"
+#include "World/TextureAtlasManager.hpp"
 
 using namespace Invasion::Entity;
 using namespace Invasion::Entity::Entities;
@@ -121,7 +121,7 @@ namespace Invasion
 			samplerDescription.MinLOD = 0;
 			samplerDescription.MaxLOD = D3D11_FLOAT32_MAX;
 
-			Shared<TextureAtlas> texturePacker = TextureAtlas::Create();
+			TextureAtlasManager::GetInstance().Register(TextureAtlas::Create("default", "Assets/Invasion/Texture/Block", "Assets/Invasion/Texture/Atlas"));
 
 			TextureManager::GetInstance().Register(Texture::Create("debug", "Texture/Debug.dds", samplerDescription));
 
@@ -133,7 +133,7 @@ namespace Invasion
 			mesh = GameObjectManager::GetInstance().Register(GameObject::Create("Chunk"));
 			
 			mesh->AddComponent(ShaderManager::GetInstance().Get("default"));
-			mesh->AddComponent(TextureManager::GetInstance().Get("debug"));
+			mesh->AddComponent(TextureAtlasManager::GetInstance().Get("default"));
 
 			mesh->AddComponent(Mesh::Create("square", ShaderManager::GetInstance().Get("default"), TextureManager::GetInstance().Get("debug"), {}, {}));
 
@@ -160,6 +160,7 @@ namespace Invasion
 		void CleanUp()
 		{
 			GameObjectManager::GetInstance().CleanUp();
+			TextureAtlasManager::GetInstance().CleanUp();
 			ShaderManager::GetInstance().CleanUp();
 			TextureManager::GetInstance().CleanUp();
 			Renderer::GetInstance().CleanUp();

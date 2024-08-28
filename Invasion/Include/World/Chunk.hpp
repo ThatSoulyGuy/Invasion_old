@@ -2,6 +2,7 @@
 
 #include "ECS/GameObject.hpp"
 #include "Render/Mesh.hpp"
+#include "World/TextureAtlas.hpp"
 
 using namespace Invasion::ECS;
 using namespace Invasion::Render;
@@ -47,7 +48,7 @@ namespace Invasion::World
 							int ny = y + FaceOffsets[i][1];
 							int nz = z + FaceOffsets[i][2];
 
- 							if (!IsValidPosition({ nx, ny, nz }) || GetBlock(blocks, { nx, ny, nz }) == 0) //GetBlock: vector subscript out of range
+ 							if (!IsValidPosition({ nx, ny, nz }) || GetBlock(blocks, { nx, ny, nz }) == 0)
 								AddFace({ x, y, z }, i);
 						}
 					}
@@ -119,13 +120,7 @@ namespace Invasion::World
 				{ Vector3f(0, 0, 0), Vector3f(0, 1, 0), Vector3f(1, 1, 0), Vector3f(1, 0, 0) },
 			};
 
-			static const Vector2f texCoords[4] =
-			{
-				Vector2f(0.0f, 1.0f),
-				Vector2f(0.0f, 0.0f),
-				Vector2f(1.0f, 0.0f),
-				Vector2f(1.0f, 1.0f)
-			};
+			Array<Vector2f, 4> texCoords = GetGameObject()->GetComponent<TextureAtlas>()->GetTextureCoordinates("dirt");
 
 			static const Vector3f normals[6] =
 			{

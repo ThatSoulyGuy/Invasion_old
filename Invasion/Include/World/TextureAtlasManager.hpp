@@ -19,9 +19,23 @@ namespace Invasion::World
 			return textureAtlases[name];
 		}
 
-		void Remove()
+		void Remove(const String& name)
 		{
-			textureAtlases.ForEach([](Shared<TextureAtlas> image) { image->CleanUp_NoOverride(); });
+			textureAtlases[name]->CleanUp_NoOverride();
+
+			textureAtlases -= name;
+		}
+
+		void CleanUp()
+		{
+			textureAtlases.ForEach([](Shared<TextureAtlas> image) { image->CleanUp(); });
+		}
+
+		static TextureAtlasManager& GetInstance()
+		{
+			static TextureAtlasManager instance;
+
+			return instance;
 		}
 
 	private:

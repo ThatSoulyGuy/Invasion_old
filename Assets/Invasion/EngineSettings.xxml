@@ -6,6 +6,6 @@ ID="0x989374BC6A7EF9DB22D1"
 
 [ <Invasion_Default>
 	DefaultApplicationTitle="Invasion"
-	DefaultApplicationVersion=[1.8.3]
+	DefaultApplicationVersion=[1.9.3]
 	DefaultWindowDimensions=[750,450]
 ]

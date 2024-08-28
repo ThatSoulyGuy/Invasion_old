@@ -769,7 +769,7 @@ namespace Invasion::Util
             return this->data.length();
         }
 
-        void FindAndReplace(const BasicString& find, const BasicString& replace)
+        BasicString<T>& FindAndReplace(const BasicString& find, const BasicString& replace)
         {
             size_t pos = 0;
             while ((pos = this->data.find(find.data, pos)) != std::string::npos)
@@ -777,9 +777,11 @@ namespace Invasion::Util
                 this->data.replace(pos, find.data.length(), replace.data);
                 pos += replace.data.length();
             }
+
+            return *this;
         }
 
-        void FindAndReplace(const BasicString&& find, const BasicString&& replace)
+        BasicString<T>& FindAndReplace(const BasicString&& find, const BasicString&& replace)
         {
             size_t pos = 0;
             while ((pos = this->data.find(find.data, pos)) != std::string::npos)
@@ -787,9 +789,11 @@ namespace Invasion::Util
                 this->data.replace(pos, find.data.length(), replace.data);
                 pos += replace.data.length();
             }
+
+            return *this;
         }
 
-        void FindAndReplace(const char* find, const char* replace)
+        BasicString<T>& FindAndReplace(const char* find, const char* replace)
         {
             size_t pos = 0;
             while ((pos = this->data.find(find, pos)) != std::string::npos)
@@ -797,9 +801,11 @@ namespace Invasion::Util
                 this->data.replace(pos, strlen(find), replace);
                 pos += strlen(replace);
             }
+
+            return *this;
         }
 
-        void FindAndReplace(const std::string& find, const std::string& replace)
+        BasicString<T>& FindAndReplace(const std::string& find, const std::string& replace)
         {
             size_t pos = 0;
             while ((pos = this->data.find(find, pos)) != std::string::npos)
@@ -807,9 +813,11 @@ namespace Invasion::Util
                 this->data.replace(pos, find.length(), replace);
                 pos += replace.length();
             }
+
+            return *this;
         }
 
-        void FindAndReplace(const std::string&& find, const std::string&& replace)
+        BasicString<T>& FindAndReplace(const std::string&& find, const std::string&& replace)
         {
             size_t pos = 0;
             while ((pos = this->data.find(find, pos)) != std::string::npos)
@@ -817,9 +825,11 @@ namespace Invasion::Util
                 this->data.replace(pos, find.length(), replace);
                 pos += replace.length();
             }
+
+            return *this;
         }
 
-        void FindAndReplace(const std::string_view& find, const std::string_view& replace)
+        BasicString<T>& FindAndReplace(const std::string_view& find, const std::string_view& replace)
         {
             size_t pos = 0;
             while ((pos = this->data.find(find.data(), pos)) != std::string::npos)
@@ -827,9 +837,11 @@ namespace Invasion::Util
                 this->data.replace(pos, find.length(), replace.data());
                 pos += replace.length();
             }
+
+            return *this;
         }
 
-        void FindAndReplace(const std::string_view&& find, const std::string_view&& replace)
+        BasicString<T>& FindAndReplace(const std::string_view&& find, const std::string_view&& replace)
         {
             size_t pos = 0;
             while ((pos = this->data.find(find.data(), pos)) != std::string::npos)
@@ -837,9 +849,11 @@ namespace Invasion::Util
                 this->data.replace(pos, find.length(), replace.data());
                 pos += replace.length();
             }
+
+            return *this;
         }
 
-        void FindAndReplace(const wchar_t* find, const wchar_t* replace)
+        BasicString<T>& FindAndReplace(const wchar_t* find, const wchar_t* replace)
         {
             if constexpr (std::is_same_v<T, char>)
             {
@@ -862,9 +876,11 @@ namespace Invasion::Util
                     pos += wcslen(replace);
                 }
             }
+
+            return *this;
         }
 
-        void FindAndReplace(const std::wstring& find, const std::wstring& replace)
+        BasicString<T>& FindAndReplace(const std::wstring& find, const std::wstring& replace)
         {
             if constexpr (std::is_same_v<T, char>)
             {
@@ -887,9 +903,11 @@ namespace Invasion::Util
                     pos += replace.length();
                 }
             }
+
+            return *this;
         }
 
-        void FindAndReplace(const std::wstring&& find, const std::wstring&& replace)
+        BasicString<T>& FindAndReplace(const std::wstring&& find, const std::wstring&& replace)
         {
             if constexpr (std::is_same_v<T, char>)
             {
@@ -912,9 +930,11 @@ namespace Invasion::Util
                     pos += replace.length();
                 }
             }
+
+            return *this;
         }
 
-        void FindAndReplace(const std::wstring_view& find, const std::wstring_view& replace)
+        BasicString<T>& FindAndReplace(const std::wstring_view& find, const std::wstring_view& replace)
         {
             if constexpr (std::is_same_v<T, char>)
             {
@@ -937,9 +957,11 @@ namespace Invasion::Util
                     pos += replace.length();
                 }
             }
+
+            return *this;
         }
 
-        void FindAndReplace(const std::wstring_view&& find, const std::wstring_view&& replace)
+        BasicString<T>& FindAndReplace(const std::wstring_view&& find, const std::wstring_view&& replace)
         {
             if constexpr (std::is_same_v<T, char>)
             {
@@ -962,6 +984,8 @@ namespace Invasion::Util
                     pos += replace.length();
                 }
             }
+
+            return *this;
         }
 
         BasicString SubString(size_t start, size_t length)

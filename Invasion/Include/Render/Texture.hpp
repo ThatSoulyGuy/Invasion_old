@@ -137,7 +137,7 @@ namespace Invasion
 			Vector2i dimensions;
 			int channels = 0;
 
-			D3D11_SAMPLER_DESC samplerDescription;
+			D3D11_SAMPLER_DESC samplerDescription = {};
 
 			ComPtr<ID3D11Resource> texture;
 			ComPtr<ID3D11ShaderResourceView> shaderResourceView;

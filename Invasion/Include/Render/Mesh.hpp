@@ -7,10 +7,12 @@
 #include "Render/Texture.hpp"	
 #include "Render/Vertex.hpp"
 #include "Util/Typedefs.hpp"
+#include "World/TextureAtlas.hpp"
 
 using namespace Invasion::ECS;
 using namespace Invasion::Math;
 using namespace Invasion::Util;
+using namespace Invasion::World;
 
 namespace Invasion::Render
 {
@@ -78,6 +80,7 @@ namespace Invasion::Render
 		{
 			Shared<Shader> shader = GetGameObject()->GetComponent<Shader>();
 			Shared<Texture> texture = GetGameObject()->GetComponent<Texture>();
+			Shared<TextureAtlas> textureAtlas = GetGameObject()->GetComponent<TextureAtlas>();
 			Shared<Transform> transform = GetGameObject()->GetComponent<Transform>();
 
 			auto context = Renderer::GetInstance().GetContext();
@@ -90,7 +93,11 @@ namespace Invasion::Render
 			context->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 			shader->Bind();
-			texture->Bind();
+
+			if (textureAtlas)
+				textureAtlas->Bind();
+			else
+				texture->Bind();
 
 			shader->SetConstantBuffer(0, DefaultMatrixBuffer
 			{ 
@@ -99,7 +106,10 @@ namespace Invasion::Render
 				DirectX::XMMatrixTranspose(transform->GetWorldMatrix()) 
 			}, ShaderType::VERTEX);
 
-			shader->SetSamplerState(0, texture->GetSamplerState(), ShaderType::PIXEL);
+			if (textureAtlas)
+				shader->SetSamplerState(0, textureAtlas->GetSamplerState(), ShaderType::PIXEL);
+			else
+				shader->SetSamplerState(0, texture->GetSamplerState(), ShaderType::PIXEL);
 
 			context->DrawIndexed(indices.Length(), 0, 0);
 		}
