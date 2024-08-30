@@ -197,6 +197,7 @@
     <ClInclude Include="Invasion\Include\Util\BasicMap.hpp" />
     <ClInclude Include="Invasion\Include\Util\BasicString.hpp" />
     <ClInclude Include="Invasion\Include\Util\CommonVersionFormat.hpp" />
+    <ClInclude Include="Invasion\Include\Util\CoordinateHelper.hpp" />
     <ClInclude Include="Invasion\Include\Util\DateTime.hpp" />
     <ClInclude Include="Invasion\Include\Util\FileHelper.hpp" />
     <ClInclude Include="Invasion\Include\Util\Formatter.hpp" />
@@ -206,6 +207,7 @@
     <ClInclude Include="Invasion\Include\World\Chunk.hpp" />
     <ClInclude Include="Invasion\Include\World\TextureAtlas.hpp" />
     <ClInclude Include="Invasion\Include\World\TextureAtlasManager.hpp" />
+    <ClInclude Include="Invasion\Include\World\IWorld.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Invasion\EngineSettings.xxml" />

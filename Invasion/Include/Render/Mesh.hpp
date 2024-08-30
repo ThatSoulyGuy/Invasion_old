@@ -130,7 +130,7 @@ namespace Invasion::Render
 			indexBuffer.Reset();
 		}
 
-		static Shared<Mesh> Create(const String& name, Shared<Shader> shader, Shared<Texture> texture, const Vector<Vertex>& vertices, const Vector<unsigned int>& indices)
+		static Shared<Mesh> Create(const String& name, const Vector<Vertex>& vertices, const Vector<unsigned int>& indices)
 		{
 			class Enabled : public Mesh { };
 			Shared<Mesh> result = std::make_shared<Enabled>();

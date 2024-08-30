@@ -13,6 +13,8 @@ namespace Invasion::World
 	{
 	public:
 
+		Chunk(const Chunk&) = delete;
+
 		void Initialize() override
 		{
 			mesh = GetGameObject()->GetComponent<Mesh>();
@@ -117,7 +119,7 @@ namespace Invasion::World
 				{ Vector3f(0, 0, 0), Vector3f(0, 1, 0), Vector3f(1, 1, 0), Vector3f(1, 0, 0) },
 			};
 
-			Array<Vector2f, 4> texCoords = GetGameObject()->GetComponent<TextureAtlas>()->GetTextureCoordinates("dirt");
+			Array<Vector2f, 4> texCoords = GetGameObject()->GetComponent<TextureAtlas>()->GetTextureCoordinates("dirt"); 
 
 			static const Vector3f normals[6] =
 			{

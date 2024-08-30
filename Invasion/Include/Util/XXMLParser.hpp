@@ -109,7 +109,7 @@ namespace Invasion::Util
 
 			Regex stringVariableRegex(R"((\w+)\s*=\s*"([^"]+)\")");
 
-			Regex versionVariableRegex(R"((\w+)\s*=\s*(\[\s*((\d)\s*.\s*(\d)\s*.\s*(\d))\s*\]))");
+			Regex versionVariableRegex(R"((\w+)\s*=\s*\[\s*(\d+)\s*\.\s*(\d+)\s*\.\s*(\d+)\s*\])");
 
 			Regex intVariableRegex(R"((\w+)\s*=\s*(\d+))");
 			Regex floatVariableRegex(R"((\w+)\s*=\s*(\d+\.?\d*)f)");

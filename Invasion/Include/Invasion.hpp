@@ -10,6 +10,7 @@
 #include "Util/XXMLParser.hpp"
 #include "World/Chunk.hpp"
 #include "World/TextureAtlasManager.hpp"
+#include "World/IWorld.hpp"
 
 using namespace Invasion::Entity;
 using namespace Invasion::Entity::Entities;
@@ -133,6 +134,8 @@ namespace Invasion
 
 		void Update()
 		{
+			IWorld::GetInstance().Update(player->GetTransform()->GetWorldPosition());
+
 			InputManager::GetInstance().Update();
 			GameObjectManager::GetInstance().Update();
 		}

@@ -73,6 +73,7 @@ namespace Invasion::World
 
         void CleanUp_NoOverride()
         {
+            atlas.Release();
             images.ForEach([](DirectX::ScratchImage image) { image.Release(); });
         }
 

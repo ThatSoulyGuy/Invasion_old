@@ -17,6 +17,15 @@ namespace Invasion::Math
         Vector3i(int scalar) : x(scalar), y(scalar), z(scalar) {}
         Vector3i(const Vector3i& other) : x(other.x), y(other.y), z(other.z) {}
 
+        Vector3i(Vector3i&& other) noexcept 
+        {
+            auto& temp = other;
+
+            x = temp.x;
+            y = temp.y;
+            z = temp.z;
+        }
+
         Vector3i(DirectX::XMVECTOR vector)
         {
             DirectX::XMStoreFloat3(reinterpret_cast<DirectX::XMFLOAT3*>(this), vector);
@@ -585,4 +594,16 @@ namespace Invasion::Math
     {
         return !(lhs == rhs);
     }
+}
+
+namespace std 
+{
+    template <>
+    struct hash<Invasion::Math::Vector3i> 
+    {
+        std::size_t operator()(const Invasion::Math::Vector3i& v) const noexcept
+        {
+            return ((std::hash<int>()(v.x) ^ (std::hash<int>()(v.y) << 1)) >> 1) ^ (std::hash<int>()(v.z) << 1);
+        }
+    };
 }
