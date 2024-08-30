@@ -239,11 +239,6 @@ namespace Invasion::Util
 			return data[key];
 		}
 
-		const Value& operator[](const Key& key) const
-		{
-			return data.at(key);
-		}
-
 		bool Contains(const Key& key) const
 		{
 			return data.find(key) != data.end();

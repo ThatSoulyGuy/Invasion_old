@@ -129,17 +129,6 @@ namespace Invasion
 
 			player->AddComponent(IEntity::Create<EntityPlayer>());
 			player->GetTransform()->Translate({ 0.0f, 0.0f, -5.0f });
-
-			mesh = GameObjectManager::GetInstance().Register(GameObject::Create("Chunk"));
-			
-			mesh->AddComponent(ShaderManager::GetInstance().Get("default"));
-			mesh->AddComponent(TextureAtlasManager::GetInstance().Get("default"));
-
-			mesh->AddComponent(Mesh::Create("square", ShaderManager::GetInstance().Get("default"), TextureManager::GetInstance().Get("debug"), {}, {}));
-
-			mesh->AddComponent(Chunk::Create());
-
-			mesh->GetComponent<Chunk>()->Generate();
 		}
 
 		void Update()

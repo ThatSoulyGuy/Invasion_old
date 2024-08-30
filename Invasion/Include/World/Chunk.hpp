@@ -13,9 +13,6 @@ namespace Invasion::World
 	{
 	public:
 
-		Chunk(const Chunk&) = delete;
-		Chunk& operator=(const Chunk&) = delete;
-
 		void Initialize() override
 		{
 			mesh = GetGameObject()->GetComponent<Mesh>();
