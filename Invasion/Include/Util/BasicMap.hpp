@@ -138,6 +138,27 @@ namespace Invasion::Util
 			return *this;
 		}
 
+
+		BasicMap& operator|=(std::pair<Key, Value> other)
+		{
+			data.insert(std::move(other));
+			return *this;
+		}
+		
+		BasicMap& operator|=(std::initializer_list<std::pair<const Key, Value>> list)
+		{
+			data.insert(std::move(list));
+
+			return *this;
+		}
+
+		BasicMap& operator|=(std::initializer_list<std::pair<Key, Value>> list)
+		{
+			data.insert(std::move(list));
+
+			return *this;
+		}
+
 		BasicMap& operator-=(const BasicMap& other)
 		{
 			for (const auto& pair : other.data)

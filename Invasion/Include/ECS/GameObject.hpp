@@ -27,7 +27,12 @@ namespace Invasion::ECS
 		void CleanUp()
 		{
 			for (auto& [type, component] : components)
+			{
 				component->CleanUp();
+				component.reset();
+			}
+
+			components.Clear();
 		}
 
 		template <typename T>

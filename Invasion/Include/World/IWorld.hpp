@@ -81,6 +81,7 @@ namespace Invasion::World
             {
                 Shared<Chunk> chunk = loadedChunks[chunkCoord];
                 GameObjectManager::GetInstance().Unregister(chunk->GetGameObject()->GetName());
+                chunk.reset();
 
                 return chunkCoord;
             }
