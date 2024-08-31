@@ -20,6 +20,7 @@
 #include <format>
 #include <regex>
 #include <variant>
+#include <optional>
 #include <functional>
 #include <type_traits>
 #include <typeindex>
@@ -82,6 +83,9 @@ namespace Invasion::Util
 
 	template <typename T>
 	using Function = std::function<T>;
+
+	template <typename T>
+	using Optional = std::optional<T>;
 
 	template <typename T>
 	using Unique = std::unique_ptr<T>;

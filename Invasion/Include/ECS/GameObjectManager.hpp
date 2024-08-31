@@ -27,6 +27,7 @@ namespace Invasion::ECS
 		void Unregister(const String& name)
 		{
 			gameObjects[name]->CleanUp();
+			gameObjects[name].reset();
 			gameObjects -= name;
 		}
 

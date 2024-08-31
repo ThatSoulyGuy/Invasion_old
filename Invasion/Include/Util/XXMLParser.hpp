@@ -160,7 +160,7 @@ namespace Invasion::Util
 				}
 				else if (std::regex_search(line, match, versionVariableRegex))
 				{
-					CommonVersionFormat version = CommonVersionFormat::Create(std::stoi(match[4]), std::stoi(match[5]), std::stoi(match[6]));
+					CommonVersionFormat version = CommonVersionFormat::Create(std::stoi(match[2]), std::stoi(match[3]), std::stoi(match[4]));
 
 					if (currentNamespace.IsEmpty())
 						globalVariables[match[1]] = version;

@@ -42,9 +42,17 @@ namespace Invasion::World
                 }
             }
 
+            Vector<Optional<Vector3i>> chunksToUnload;
+
             for (const auto& [chunkCoord, chunk] : loadedChunks)
-                UnloadChunk(chunkCoord);
+                chunksToUnload += UnloadChunk(chunkCoord);
             
+            chunksToUnload.ForEach([&](Optional<Vector3i>& chunkCoord)
+            { 
+                if (chunkCoord.has_value())
+                    loadedChunks -= chunkCoord.value(); 
+            });
+
             loadedChunks = std::move(newLoadedChunks);
         }
 
@@ -67,13 +75,17 @@ namespace Invasion::World
             return chunk;
         }
 
-        void UnloadChunk(const Vector3i& chunkCoord)
+        Optional<Vector3i> UnloadChunk(const Vector3i& chunkCoord)
         {
             if (loadedChunks.Contains(chunkCoord))
             {
                 Shared<Chunk> chunk = loadedChunks[chunkCoord];
                 GameObjectManager::GetInstance().Unregister(chunk->GetGameObject()->GetName());
+
+                return chunkCoord;
             }
+            
+            return Optional<Vector3i>();
         }
 
         static IWorld& GetInstance()
