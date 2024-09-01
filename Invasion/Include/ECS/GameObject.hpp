@@ -161,6 +161,7 @@ namespace Invasion::ECS
                     LockGuard<Mutex> childLock(child.lock()->mutex);
                     child.lock()->parent.reset();
                 }
+
                 children -= name;
             }
         }
