@@ -59,8 +59,6 @@ namespace Invasion::ECS
             Shared<Component> component = nullptr;
 
             {
-                //LockGuard<Mutex> lock(mutex);
-
                 if (components.Contains(typeid(T)))
                     component = components[typeid(T)];
             }
@@ -130,7 +128,6 @@ namespace Invasion::ECS
             child->SetParent(std::static_pointer_cast<GameObject>(shared_from_this()));
 
             {
-                //LockGuard<Mutex> lock(mutex);
                 children += { child->GetName(), child };
             }
         }
@@ -147,8 +144,6 @@ namespace Invasion::ECS
 
         Shared<GameObject> GetChild(const String& name)
         {
-            //LockGuard<Mutex> lock(mutex);
-
             if (children.Contains(name))
                 return children[name].lock();
             else
