@@ -6,7 +6,6 @@ namespace Invasion::ECS
 {
 	class GameObjectManager
 	{
-
 	public:
 
 		Shared<GameObject> Register(Shared<GameObject> gameObject)
@@ -14,7 +13,6 @@ namespace Invasion::ECS
 			String name = gameObject->GetName();
 
 			gameObjects += { name, std::move(gameObject) };
-
 			return gameObjects[name];
 		}
 
@@ -51,13 +49,11 @@ namespace Invasion::ECS
 		static GameObjectManager& GetInstance()
 		{
 			static GameObjectManager instance;
-
 			return instance;
 		}
 
 	private:
 		
 		OrderedMap<String, Shared<GameObject>> gameObjects;
-
 	};
 }

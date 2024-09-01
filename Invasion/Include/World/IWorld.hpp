@@ -18,7 +18,6 @@ namespace Invasion::World
         void Update(Vector3f loaderPosition)
         {
             Vector3i chunkPosition = CoordinateHelper::WorldToChunkCoordinates(loaderPosition);
-
             chunkPosition.y = 0;
 
             UnorderedMap<Vector3i, Shared<Chunk>> newLoadedChunks;
@@ -44,10 +43,6 @@ namespace Invasion::World
 
             Vector<Optional<Vector3i>> chunksToUnload;
 
-            for (const auto& [chunkCoord, chunk] : loadedChunks)
-                chunksToUnload += UnloadChunk(chunkCoord);
-            
-            chunksToUnload.ForEach([&](Optional<Vector3i>& chunkCoord)
             { 
                 if (chunkCoord.has_value())
                     loadedChunks -= chunkCoord.value(); 
@@ -69,7 +64,6 @@ namespace Invasion::World
             chunkObject->AddComponent(Mesh::Create(String("Chunk_Mesh_") + std::to_string(position.x) + "_" + std::to_string(position.y) + "_" + std::to_string(position.z) + "_", {}, {}));
             
             Shared<Chunk> chunk = chunkObject->AddComponent(Chunk::Create());
-
             chunk->Generate();
 
             return chunk;
@@ -88,19 +82,5 @@ namespace Invasion::World
             
             return Optional<Vector3i>();
         }
-
-        static IWorld& GetInstance()
-        {
-            static IWorld instance;
-            return instance;
-        }
-
-        static constexpr int RENDER_DISTANCE = 2;
-
-    private:
-
-        IWorld() = default;
-
-        UnorderedMap<Vector3i, Shared<Chunk>> loadedChunks;
     };
 }

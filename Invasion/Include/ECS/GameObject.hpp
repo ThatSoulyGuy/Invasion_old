@@ -27,10 +27,7 @@ namespace Invasion::ECS
 		void CleanUp()
 		{
 			for (auto& [type, component] : components)
-			{
 				component->CleanUp();
-				component.reset();
-			}
 
 			components.Clear();
 		}
@@ -42,8 +39,6 @@ namespace Invasion::ECS
 
 			component->gameObject = std::static_pointer_cast<GameObject>(shared_from_this());
 			component->Initialize();
-			
-			components += { typeid(T), component };
 
 			return component;
 		}
@@ -104,12 +99,9 @@ namespace Invasion::ECS
 		void AddChild(Shared<GameObject> child)
 		{
 			child->SetParent(std::static_pointer_cast<GameObject>(shared_from_this()));
-
 			children += { child->GetName(), child };
 		}
 
-		Shared<GameObject> GetChild(const String& name)
-		{
 			if (children.Contains(name))
 				return children[name];
 			else
@@ -134,7 +126,6 @@ namespace Invasion::ECS
 			Shared<GameObject> result = std::make_shared<GameObject>();
 
 			result->name = name;
-
 			result->AddComponent(Transform::Create({ 0.0f, 0.0f, 0.0f }, { 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }));
 
 			return std::move(result);
@@ -143,9 +134,7 @@ namespace Invasion::ECS
 	private:
 
 		String name;
-
 		Shared<GameObject> parent;
-
 		UnorderedMap<String, Shared<GameObject>> children;
 		UnorderedMap<TypeIndex, Shared<Component>> components;
 
