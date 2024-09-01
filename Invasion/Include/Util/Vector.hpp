@@ -231,6 +231,16 @@ namespace Invasion::Util
 			return data.end();
 		}
 
+		auto begin()
+		{
+			return data.begin();
+		}
+
+		auto end()
+		{
+			return data.end();
+		}
+
 		operator std::vector<T>() const
 		{
 			return data;

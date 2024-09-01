@@ -4,56 +4,76 @@
 
 namespace Invasion::ECS
 {
-	class GameObjectManager
-	{
-	public:
+    class GameObjectManager
+    {
+    public:
 
-		Shared<GameObject> Register(Shared<GameObject> gameObject)
-		{
-			String name = gameObject->GetName();
+        Shared<GameObject> Register(Shared<GameObject> gameObject)
+        {
+            LockGuard<Mutex> lock(mutex);
 
-			gameObjects += { name, std::move(gameObject) };
-			return gameObjects[name];
-		}
+            String name = gameObject->GetName();
 
-		Shared<GameObject> Get(const String& name)
-		{
-			if (gameObjects.Contains(name))
-				return gameObjects[name];
-			else
-				return nullptr;
-		}
+            gameObjects |= { name, gameObject };
 
-		void Unregister(const String& name)
-		{
-			gameObjects[name]->CleanUp();
-			gameObjects[name].reset();
-			gameObjects -= name;
-		}
+            return gameObjects[name];
+        }
 
-		void Update()
-		{
-			gameObjects.ForEach([]( String, Shared<GameObject> gameObject) { gameObject->Update(); });
-		}
+        Shared<GameObject> Get(const String& name)
+        {
+            LockGuard<Mutex> lock(mutex); 
 
-		void Render(Shared<Invasion::Render::Camera> camera)
-		{
-			gameObjects.ForEach([camera](String, Shared<GameObject> gameObject) { gameObject->Render(camera); });
-		}
+            if (gameObjects.Contains(name))
+                return gameObjects[name];
+            else
+                return nullptr;
+        }
 
-		void CleanUp()
-		{
-			gameObjects.ForEach([](String, Shared<GameObject> gameObject) { gameObject->CleanUp(); });
-		}
+        void Unregister(const String& name)
+        {
+            LockGuard<Mutex> lock(mutex);
 
-		static GameObjectManager& GetInstance()
-		{
-			static GameObjectManager instance;
-			return instance;
-		}
+            if (gameObjects.Contains(name)) 
+            {
+                gameObjects[name]->CleanUp();
+                gameObjects[name].reset();
+                gameObjects -= name;
+            }
+        }
 
-	private:
-		
-		OrderedMap<String, Shared<GameObject>> gameObjects;
-	};
+        void Update()
+        {
+            LockGuard<Mutex> lock(mutex);
+
+            gameObjects.ForEach([](String, Shared<GameObject> gameObject) { gameObject->Update(); });
+        }
+
+        void Render(Shared<Invasion::Render::Camera> camera)
+        {
+            LockGuard<Mutex> lock(mutex);
+
+            gameObjects.ForEach([camera](String, Shared<GameObject> gameObject) { gameObject->Render(camera); });
+        }
+
+        void CleanUp()
+        {
+            LockGuard<Mutex> lock(mutex);
+
+            gameObjects.ForEach([](String, Shared<GameObject> gameObject) { gameObject->CleanUp(); });
+            gameObjects.Clear();
+        }
+
+        static GameObjectManager& GetInstance()
+        {
+            static GameObjectManager instance;
+            return instance;
+        }
+
+    private:
+
+        GameObjectManager() = default;
+
+        Mutex mutex;
+        OrderedMap<String, Shared<GameObject>> gameObjects;
+    };
 }

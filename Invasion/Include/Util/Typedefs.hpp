@@ -20,6 +20,7 @@
 #include <format>
 #include <regex>
 #include <variant>
+#include <queue>
 #include <optional>
 #include <functional>
 #include <type_traits>
@@ -110,4 +111,7 @@ namespace Invasion::Util
 
 	template <typename T>
 	using Promise = std::promise<T>;
+
+	template <typename T>
+	using LockGuard = std::lock_guard<T>;
 }

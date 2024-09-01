@@ -192,6 +192,7 @@
     <ClInclude Include="Invasion\Include\Render\Texture.hpp" />
     <ClInclude Include="Invasion\Include\Render\TextureManager.hpp" />
     <ClInclude Include="Invasion\Include\Render\Vertex.hpp" />
+    <ClInclude Include="Invasion\Include\Thread\ThreadPool.hpp" />
     <ClInclude Include="Invasion\Include\Util\Array.hpp" />
     <ClInclude Include="Invasion\Include\Util\Assembly.hpp" />
     <ClInclude Include="Invasion\Include\Util\BasicMap.hpp" />

@@ -138,6 +138,8 @@ namespace Invasion
 
 			InputManager::GetInstance().Update();
 			GameObjectManager::GetInstance().Update();
+
+			IWorld::GetInstance().WaitForUpdate();
 		}
 
 		void Render()

@@ -7,136 +7,192 @@ using namespace Invasion::Math;
 
 namespace Invasion::ECS
 {
-	class GameObject : public std::enable_shared_from_this<GameObject>
-	{
+    class GameObject : public std::enable_shared_from_this<GameObject>
+    {
 
-	public:
+    public:
 
-		void Update()
-		{
-			for (auto& [type, component] : components)
-				component->Update();
-		}
+        void Update()
+        {
+            LockGuard<Mutex> lock(mutex);
 
-		void Render(Shared<Invasion::Render::Camera> camera)
-		{
-			for (auto& [type, component] : components)
-				component->Render(camera);
-		}
+            for (auto& [type, component] : components)
+                component->Update();
+        }
 
-		void CleanUp()
-		{
-			for (auto& [type, component] : components)
-				component->CleanUp();
+        void Render(Shared<Invasion::Render::Camera> camera)
+        {
+            LockGuard<Mutex> lock(mutex);
 
-			components.Clear();
-		}
+            for (auto& [type, component] : components)
+                component->Render(camera);
+        }
 
-		template <typename T>
-		Shared<T> AddComponent(Shared<T> component)
-		{
-			static_assert(std::is_base_of<Component, T>::value, "T must derive from Component");
+        void CleanUp()
+        {
+            LockGuard<Mutex> lock(mutex);
 
-			component->gameObject = std::static_pointer_cast<GameObject>(shared_from_this());
-			component->Initialize();
+            for (auto& [type, component] : components)
+                component->CleanUp();
+         
+            components.Clear();
+        }
 
-			return component;
-		}
+        template <typename T>
+        Shared<T> AddComponent(Shared<T> component)
+        {
+            static_assert(std::is_base_of<Component, T>::value, "T must derive from Component");
 
-		template <typename T>
-		Shared<T> GetComponent()
-		{
-			if (components.Contains(typeid(T)))
-				return std::static_pointer_cast<T>(components[typeid(T)]);
-			else
-				return nullptr;
-		}
+            LockGuard<Mutex> lock(mutex);
 
-		template <typename T>
-		bool HasComponent()
-		{
-			return components.Contains(typeid(T));
-		}
+            component->gameObject = std::static_pointer_cast<GameObject>(shared_from_this());
+            component->Initialize();
 
-		template <typename T>
-		void RemoveComponent()
-		{
-			components[typeid(T)]->CleanUp();
+            components += { typeid(T), std::move(component) };
 
-			if (components.Contains(typeid(T)))
-				components -= typeid(T);
-		}
+            return std::static_pointer_cast<T>(components[typeid(T)]);
+        }
 
-		void SetName(const String& name)
-		{
-			this->name = name;
-		}
+        template <typename T>
+        Shared<T> GetComponent()
+        {
+            Shared<Component> component = nullptr;
 
-		String GetName() const
-		{
-			return name;
-		}
+            {
+                //LockGuard<Mutex> lock(mutex);
 
-		void SetParent(Shared<GameObject> parent)
-		{
-			assert(parent != nullptr && "Parent cannot be null");
+                if (components.Contains(typeid(T)))
+                    component = components[typeid(T)];
+            }
 
-			this->parent = parent;
-			GetTransform()->parent = parent->GetTransform();
-		}
+            if (component != nullptr)
+                return std::static_pointer_cast<T>(component);
+            else
+                return nullptr;
+        }
 
-		Shared<GameObject> GetParent()
-		{
-			return parent;
-		}
+        template <typename T>
+        bool HasComponent()
+        {
+            LockGuard<Mutex> lock(mutex);
+            return components.Contains(typeid(T));
+        }
 
-		void RemoveParent()
-		{
-			parent = nullptr;
-			GetTransform()->parent = nullptr;
-		}
+        template <typename T>
+        void RemoveComponent()
+        {
+            LockGuard<Mutex> lock(mutex);
 
-		void AddChild(Shared<GameObject> child)
-		{
-			child->SetParent(std::static_pointer_cast<GameObject>(shared_from_this()));
-			children += { child->GetName(), child };
-		}
+            if (components.Contains(typeid(T)))
+            {
+                components[typeid(T)]->CleanUp();
+                components -= typeid(T);
+            }
+        }
 
-			if (children.Contains(name))
-				return children[name];
-			else
-				return nullptr;
-		}
+        void SetName(const String& name)
+        {
+            LockGuard<Mutex> lock(mutex);
+            this->name = name;
+        }
 
-		void RemoveChild(const String& name)
-		{
-			children[name]->RemoveParent();
+        String GetName() const
+        {
+            LockGuard<Mutex> lock(mutex);
+            return name;
+        }
 
-			if (children.Contains(name))
-				children -= name;
-		}
+        void SetParent(Shared<GameObject> parent)
+        {
+            assert(parent != nullptr && "Parent cannot be null");
 
-		Shared<Transform> GetTransform()
-		{
-			return GetComponent<Transform>();
-		}
+            Shared<Transform> parentTransform;
+            {
+                LockGuard<Mutex> lock(mutex);
+                this->parent = parent;
+                parentTransform = parent->GetTransform();
+            }
 
-		static Shared<GameObject> Create(const String& name)
-		{
-			Shared<GameObject> result = std::make_shared<GameObject>();
+            GetTransform()->parent = parentTransform;
+        }
 
-			result->name = name;
-			result->AddComponent(Transform::Create({ 0.0f, 0.0f, 0.0f }, { 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }));
+        Shared<GameObject> GetParent()
+        {
+            LockGuard<Mutex> lock(mutex);
+            return parent.lock();
+        }
 
-			return std::move(result);
-		}
+        void AddChild(Shared<GameObject> child)
+        {
+            if (child == nullptr)
+                return;
 
-	private:
+            child->SetParent(std::static_pointer_cast<GameObject>(shared_from_this()));
 
-		String name;
-		Shared<GameObject> parent;
-		UnorderedMap<String, Shared<GameObject>> children;
-		UnorderedMap<TypeIndex, Shared<Component>> components;
+            {
+                //LockGuard<Mutex> lock(mutex);
+                children += { child->GetName(), child };
+            }
+        }
 
-	};
+        void RemoveParent()
+        {
+            {
+                LockGuard<Mutex> lock(mutex);
+                parent.reset();
+            }
+
+            GetTransform()->parent = nullptr;
+        }
+
+        Shared<GameObject> GetChild(const String& name)
+        {
+            //LockGuard<Mutex> lock(mutex);
+
+            if (children.Contains(name))
+                return children[name].lock();
+            else
+                return nullptr;
+        }
+
+        void RemoveChild(const String& name)
+        {
+            LockGuard<Mutex> lock(mutex);
+
+            if (children.Contains(name))
+            {
+                Weak<GameObject> child = children[name];
+                {
+                    LockGuard<Mutex> childLock(child.lock()->mutex);
+                    child.lock()->parent.reset();
+                }
+                children -= name;
+            }
+        }
+
+        Shared<Transform> GetTransform()
+        {
+            return GetComponent<Transform>();
+        }
+
+        static Shared<GameObject> Create(const String& name)
+        {
+            Shared<GameObject> result = std::make_shared<GameObject>();
+
+            result->name = name;
+            result->AddComponent(Transform::Create({ 0.0f, 0.0f, 0.0f }, { 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }));
+
+            return std::move(result);
+        }
+
+    private:
+
+        mutable Mutex mutex;
+
+        String name;
+        Weak<GameObject> parent;
+        UnorderedMap<String, Weak<GameObject>> children;
+        UnorderedMap<TypeIndex, Shared<Component>> components;
+
+    };
 }
